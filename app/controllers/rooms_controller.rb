@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @user = User.find(session[:user_id])
+    @rooms = Room.findRooms()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
-
+    @messages = @room.messages.order("created at DESC")
+    @user = User.find(session[:user_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @room }
@@ -25,6 +27,7 @@ class RoomsController < ApplicationController
   # GET /rooms/new.json
   def new
     @room = Room.new
+    @user = User.find(session[:user_id])
 
     respond_to do |format|
       format.html # new.html.erb
