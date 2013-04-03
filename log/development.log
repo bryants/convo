@@ -2,3 +2,26 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (18.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (70.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRooms (20130403073724)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (75.8ms)[0m  [1mCREATE TABLE "rooms" ("id" serial primary key, "name" character varying(255), "room_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130403073724')
+  [1m[36m (19.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20130403074526)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (95.7ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "message" character varying(255), "room_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130403074526')
+  [1m[36m (7.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20130403074845)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (74.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "room_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130403074845')
+  [1m[36m (19.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 

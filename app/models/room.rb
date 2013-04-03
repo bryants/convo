@@ -3,7 +3,7 @@ class Room < ActiveRecord::Base
   has_many :users
   has_many :messages
 
-  def self.findRooms()
+  def self.findRooms
     
     rooms = []
     Room.all.each do |room|

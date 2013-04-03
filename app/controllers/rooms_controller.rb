@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @user = User.find(session[:user_id])
-    @rooms = Room.findRooms()
+    @rooms = Room.findRooms
 
     respond_to do |format|
       format.html # index.html.erb
